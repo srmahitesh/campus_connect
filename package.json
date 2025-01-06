@@ -4,9 +4,9 @@
   "description": "Here, We will build a Student registration and management Portal for an university.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
+  "start": "node server.js",
+  "vercel-build": "npm install"
+},
   "type": "module",
   "author": "Hitesh Sharma",
   "license": "ISC",
