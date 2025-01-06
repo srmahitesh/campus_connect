@@ -17,8 +17,7 @@ const AppPORT = process.env.AppPORT;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 
 //Function to activate the Database Connection, return the Connector
