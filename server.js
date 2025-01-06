@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import mysql from "mysql2/promise";
 import Stripe from "stripe";
 import { config } from "dotenv";
-import bcrypt from "bcrypt";
 config();
 
 
@@ -17,6 +16,8 @@ const AppPORT = process.env.AppPORT;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 
 
 //Function to activate the Database Connection, return the Connector
