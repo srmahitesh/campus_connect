@@ -17,7 +17,18 @@ const AppPORT = process.env.AppPORT;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine', 'ejs');
+
+
+
+//addded from gpt due to deployment issues
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
+console.log(__dirname);  // Debugging line to check path
+
+// Example of using __dirname to join paths correctly
+const filePath = path.join(__dirname, 'yourFile.txt');
+console.log(filePath);  // Check the resulting path
+//till here borrowed code
+
 
 
 //Function to activate the Database Connection, return the Connector
