@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mysql from "mysql2/promise";
 import Stripe from "stripe";
+import path from 'path';
 import { config } from "dotenv";
 config();
 
