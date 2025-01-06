@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Pay Fee</h1>
+
+  <% if(locals.msg){ %>
+    <mark> <%= msg %> </mark>
+  <%}%>
+
+  <%if(!locals.details){ %>
+    <form action="/clearDues" method="post">
+    Roll Number: <input type="number" placeholder="0000" name="roll_no" required>
+    <br>
+    <input type="submit">
+    </form>
+  <%} %>
+
+
+  <% if(locals.details){ %>
+    
+    Name: <b><%= details[0].first_name%> <%=details[0].last_name %></b>
+    <br>
+    Roll Number: <b><%= details[0].roll_no %></b>
+    <br>
+    Dues: <b><%= details[0].dues %></b>
+
+    <br>
+    <br>
+
+    <form action="/paynow" method="post">
+      Roll Number: <input type="number" value="<%= details[0].roll_no %>" name="roll_no" readonly>
+      <br>
+      Amount: <input type="number" name="amount" placeholder="50 to 1000000" min="50" max="1000000" required>
+      <br>
+      Remarks: <input type="text" value="Dues" name="remarks">
+      <br>
+      <input type="submit" value="Pay Now">
+    </form>
+
+  <%} %>
+
+
+
+</body>
+</html>

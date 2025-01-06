@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+
+  <style>
+    input, select{
+      margin: 1%;
+    }
+  </style>
+
+</head>
+<body>
+    <h1>Register Student</h1>
+
+
+    <form action="/submit" method="post" style="margin: 1%;">
+
+      First Name: <input type="text" name="f_name" maxlength="30" required>
+      <br>
+      Last Name: <input type="text" name="l_name" maxlength="30">
+      <br>
+      Father Name: <input type="text" name="father_name" maxlength="60" required>
+      <br>
+      Mother Name: <input type="text" name="mother_name" maxlength="60" required>
+      <br>
+      Birth Date: <input type="date" name="dob" required>
+      <br>
+
+      <label for="gender">Gender: </label>
+      <select name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <br>
+
+      Aadhar No. <input type="text" name="aadhar_no" maxlength="12" required>
+      <br>
+
+      <label for="course">Course:</label>
+
+      <select name="course">
+        <% for(let i = 0; i < courses.length; i++){ %>
+          <option value="<%=courses[i].course_id%>"> <%= courses[i].course_name%> - <%=courses[i].duration%> Years </option>
+        <%}%>
+      </select>
+      <br>
+
+      Student Contact Number: <input type="tel" name="contact_no" required>
+      <br>
+      Student Email Address: <input type="email" name="email_add" required>
+      <br>
+      House No. <input type="text" name="house_no" maxlength="25" required>
+      <br>
+      Street/Village: <input type="text" name="street_add" maxlength="120" required>
+      <br>
+      City: <input type="text" name="city" required>
+      <br>
+      Distt: <input type="text" name="distt" required>
+      <br>
+      State: <input type="text" name="state" required>
+      <br>
+      Country: <input type="text" name="country" required>
+      <br>
+      Zip/Pin Code: <input type="number" name="pin_code" maxlength="6" required>
+      <br>
+
+
+      
+      <!-- Registration date == current date to be taken using js -->
+       <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      function updateDuration(){
+        let selectedCourse = document.querySelector('course').value;
+        alert(selectedCourse);
+      }
+    </script>
+</body>
+</html>

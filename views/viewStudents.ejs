@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+</head>
+<body>
+  <h1>Students List</h1>
+
+  <!-- Two option, one is for all students, while second will be specific students -->
+
+
+   <form action="/getData" method="post">
+
+    <select name="sel_course">
+      <option value="">Select All</option>
+
+      <% for(let i = 0; i < courses.length; i++){ %>
+        <option value="<%= courses[i].course_id %>"><%= courses[i].course_name %></option>
+      <%}%>
+
+    </select>
+
+    <br>
+
+    <input type="submit" value="Fetch">
+
+   </form>
+
+
+   <div id="containerList">
+    <% if(locals.dataList){
+        for(let i = 0; i < dataList.length; i++){ %>
+        <hr>
+        Roll NO.: <%= dataList[i].roll_no %> <br>
+        Name: <%=dataList[i].first_name%> <%= dataList[i].last_name%> <br>
+        DOB: <%= dataList[i].dob %> <br>
+        Gender: <%= dataList[i].gender %> <br>
+        Father Name: <%= dataList[i].father_name %> <br>
+        Mother Name: <%= dataList[i].mother_name %> <br>
+        Mobile: <%= dataList[i].stu_mob%> <br>
+        E-Mail: <%= dataList[i].stu_mail %> <br>
+      <%}
+    }%>
+
+   </div>
+
+
+</body>
+</html>
